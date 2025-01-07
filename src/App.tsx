@@ -1,35 +1,94 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import React from "react";
+// import { Menu } from "./components/menu";
+// import type { MenuItemStyles } from "./components/menu";
+// import { MenuItem } from "./components/menuItem";
+// import { Sidebar } from "./components/sidebar";
+// import { SubMenu } from "./components/subMenu";
+// import { Separator } from "./styles/separator";
+// import { menuClasses } from "./utils/utilClasses";
+// import { hexToRgba } from "./helpers";
+
+import { Menu } from "./components/menu";
+import { MenuItem } from "./components/menuItem";
+
+// const menuItemStyles: MenuItemStyles = {
+//   root: {
+//     fontSize: 14,
+//     fontWeight: 400,
+//   },
+//   icon: {
+//     color: "#0098e5",
+//     [`&.${menuClasses.disabled}`]: {
+//       color: "#9fb6cf",
+//     },
+//   },
+//   SubMenuExpandIcon: {
+//     color: "#b6b7b9",
+//   },
+//   subMenuContent: ({ level }) => ({
+//     backgroundColor: level === 0 ? hexToRgba("#fbfcfd") : "transparent",
+//   }),
+//   button: {
+//     [`&.${menuClasses.disabled}`]: {
+//       color: "#9fb6cf",
+//     },
+//     "&:hover": {
+//       backgroundColor: hexToRgba("#c5e4ff"),
+//       color: "#44596e",
+//     },
+//   },
+//   label: ({ open }) => ({
+//     fontWeight: open ? 600 : 400,
+//   }),
+// };
+
+// function App() {
+//   const [toggled, setToggled] = React.useState(false);
+//   const [collapse, setCollapse] = React.useState(false);
+
+//   return (
+//     <div style={{ display: "flex" }}>
+//       <Sidebar onBackdropClick={() => setToggled(false)} toggled={toggled} breakPoint="md" collapsed={collapse}>
+//         <Menu menuItemStyles={menuItemStyles}>
+//           <SubMenu label="Heading 1">
+//             <MenuItem> SubHeading 1 </MenuItem>
+//             <MenuItem> SubHeading 2 </MenuItem>
+//           </SubMenu>
+//           <MenuItem> Heading 2 </MenuItem>
+//           <MenuItem> Heading 3</MenuItem>
+//         </Menu>
+//         <Separator color="black" width="80%" opacity={0.5} />
+//         <Menu>
+//           <SubMenu label="Heading 1">
+//             <SubMenu label="SubHeading 3">
+//               <MenuItem> SubHeading 1 </MenuItem>
+//               <MenuItem> SubHeading 2 </MenuItem>
+//             </SubMenu>
+//           </SubMenu>
+//           <MenuItem> Heading 2 </MenuItem>
+//           <MenuItem> Heading 3</MenuItem>
+//         </Menu>
+//       </Sidebar>
+
+//       <main>
+//         <button onClick={() => setToggled(!toggled)}>Toggler under breakpoint</button>
+//         <button onClick={() => setCollapse(!collapse)}>Toggle Collapse</button>
+//       </main>
+//     </div>
+//   );
+// }
+
+// export default App;
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Menu>
+        <MenuItem>Hello</MenuItem>
+      </Menu>
+      <h1>App</h1>
+    </div>
+  );
 }
 
-export default App
+export default App;
