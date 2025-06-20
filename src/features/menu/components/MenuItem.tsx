@@ -1,34 +1,15 @@
-import styled, { CSSObject } from "styled-components";
-import { menuClasses } from "../../utils/utilClasses";
-import { SidebarContext } from "../sidebar";
 import React from "react";
-import { useMenu } from "../../hooks/useMenu";
-import { LevelContext } from "../menu";
 import classnames from "classnames";
+import styled from "styled-components";
+import { menuClasses } from "../../../utils/utilClasses";
+import { MenuItemElement, MenuItemProps, StyledMenuItemProps } from "../../../types/menu.types";
 import { MenuAnchor, MenuAnchorStyles } from "../menuAnchor";
-import { MenuPrefix } from "../../styles/menuPrefix";
-import { MenuSuffix } from "../../styles/menuSuffix";
-import { MenuIcon, MenuLabel } from "../../features/menu/menuAnchor";
-
-export interface MenuItemProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "prefix"> {
-  icon?: React.ReactNode;
-  prefix?: React.ReactNode;
-  suffix?: React.ReactNode;
-  active?: boolean;
-  disabled?: boolean;
-  component?: string | React.ReactElement;
-  styles?: CSSObject;
-  children?: React.ReactNode;
-}
-
-interface StyledMenuItemProps extends Pick<MenuItemProps, "styles" | "active" | "disabled"> {
-  level: number;
-  menuItemStyles?: CSSObject;
-  collapsed?: boolean;
-  buttonStyles?: CSSObject;
-}
-
-type MenuItemElement = "root" | "button" | "label" | "prefix" | "suffix" | "icon";
+import { MenuIcon } from "./MenuIcon";
+import { MenuLabel } from "./MenuLabel";
+import { MenuPrefix } from "./MenuPrefix";
+import { MenuSuffix } from "./MenuSuffix";
+import { useMenu } from "../hooks/useMenu";
+import { LevelContext } from "../context/MenuContext";
 
 const StyledMenuItem = styled.li<StyledMenuItemProps>`
   width: 100%;
@@ -56,10 +37,13 @@ export const MenuItemFR: React.ForwardRefRenderFunction<HTMLLIElement, MenuItemP
   ref
 ) => {
   const level = React.useContext(LevelContext);
-  const { collapsed, duration } = React.useContext(SidebarContext);
+  // Don't create a new context on each render - this causes the infinite updates
+  const sidebarDefaults = { collapsed: false, toggled: false, duration: 300 };
+  const { collapsed = false, duration = 300 } = sidebarDefaults;
+  // Get menu styles with fallback for when not in a MenuProvider
   const { menuItemStyles } = useMenu();
 
-  const getMenuItemStyles = (element: MenuItemElement): CSSObject | undefined => {
+  const getMenuItemStyles = (element: MenuItemElement) => {
     if (menuItemStyles) {
       const params = { level, disabled, active, isSubmenu: false };
       const {
@@ -94,6 +78,7 @@ export const MenuItemFR: React.ForwardRefRenderFunction<HTMLLIElement, MenuItemP
           return undefined;
       }
     }
+    return undefined;
   };
 
   const sharedClasses = {
