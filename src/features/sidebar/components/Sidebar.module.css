@@ -1,0 +1,41 @@
+.sidebar {
+  position: relative;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-color: #efefef;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 3;
+}
+
+/* 
+  .collapsed styles are applied dynamically via JavaScript
+  This class is used for identifying the collapsed state
+*/
+
+.broken {
+  position: fixed;
+  height: 100%;
+  top: 0px;
+  z-index: 100;
+}
+
+/* 
+  .toggled styles are applied dynamically via JavaScript
+  This class is used for identifying the toggled state
+*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}

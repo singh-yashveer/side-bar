@@ -1,0 +1,10 @@
+/* Base menu styles - extended by custom styles if needed */
+.menu {
+  width: 100%;
+}
+
+.menuList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

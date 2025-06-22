@@ -2,6 +2,8 @@
 
 A responsive, feature-rich sidebar component for React applications with TypeScript support.
 
+> **New**: We now support both styled-components and CSS Modules implementations! See the [Styled Components Deprecation Guide](docs/styled-components-deprecation-guide.md) for details on migrating away from styled-components.
+
 ## Features
 
 - **Feature-Styled Architecture**: Organized with a clear separation of concerns

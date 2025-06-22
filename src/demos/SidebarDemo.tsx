@@ -22,6 +22,7 @@ const Content = styled.main`
   flex: 1;
   padding: 2rem;
   background-color: #f9fafb;
+  color: black;
 `;
 
 // Control panel for demo
