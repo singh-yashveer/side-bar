@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f9fafb;
+}
+
+.controlPanel {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.controlPanel h3 {
+  margin-top: 0;
+}
+
+.button {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 8px 16px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0052a3;
+}
+
+.sidebarHeader {
+  padding: 1.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #efefef;
+}
+
+.menuWrapper {
+  margin: 1rem 0;
+}
+
+.featureList {
+  margin-top: 2rem;
+}
